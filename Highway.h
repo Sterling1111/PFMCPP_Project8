@@ -3,8 +3,12 @@
 #include <vector>
 #include <algorithm>
 
+struct Vehicle;
+struct HighwayPatrol;
+
 struct Highway
 {
+    friend struct HighwayPatrol;
     void changeSpeed(int newSpeed);
     void addVehicle(Vehicle* v);
     void removeVehicle(Vehicle* v);
