@@ -141,17 +141,17 @@ int main()
     
     for(auto& car : cars)
     {
-       highway.addVehicle(&car);     
+        highway.addVehicle(&car);     
     }
 
     for(auto& motorcycle : motorcycles)
     {
-       highway.addVehicle(&motorcycle);     
+        highway.addVehicle(&motorcycle);    
     }
 
     for(auto& truck : trucks)
     {
-       highway.addVehicle(&truck);     
+        highway.addVehicle(&truck);     
     }
     
     //add the cars, motorcycles and trucks to the highway using range-based for() loops: for( element : vec ) { ... }
