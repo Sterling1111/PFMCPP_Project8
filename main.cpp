@@ -56,6 +56,12 @@ your task:
 #include <algorithm>
 #include <cassert>
 
+#include "Highway.h"
+#include "Car.h"
+#include "Motorcycle.h"
+#include "SemiTruck.h"
+#include "HighwayPatrol.h"
+
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
 
@@ -108,6 +114,8 @@ int main()
      reserve how ever many cars, motorcycles, and trucks you'll create first
      */
     cars.reserve(3); //reserving room for 3 Car instances
+    motorcycles.reserve(3); //reserving room for 3 Motorcycle instances
+    trucks.reserve(3); //reserving room for 3 SemiTruck instances
     
     /*
      Now that we have reserved space for our UDT instances inside the vector, we can construct them in-place inside the vector.
@@ -115,20 +123,37 @@ int main()
      
      use the vector member function 'emplace_back' to construct your car/truck/motorcycle instances in-place
      */
-    cars.emplace_back("janice"); //constructing the first Car instance in-place in the cars vector
-    
+    cars.emplace_back("car1"); //constructing the first Car instance in-place in the cars vector
+    cars.emplace_back("car2"); 
+    cars.emplace_back("car3");
     /*
      construct 2 more Car instances via emplace_back.
      */
+
+    motorcycles.emplace_back("motorcycle1");
+    motorcycles.emplace_back("motorcycle2");
+    motorcycles.emplace_back("motorcycle3");
     
-    /*
-     now reserve and emplace_back your Trucks and Motorcyles
-     */
+    trucks.emplace_back("truck1");
+    trucks.emplace_back("truck2");
+    trucks.emplace_back("truck3");
+
     
+    for(auto& car : cars)
+    {
+        highway.addVehicle(&car);     
+    }
+
+    for(auto& motorcycle : motorcycles)
+    {
+        highway.addVehicle(&motorcycle);    
+    }
+
+    for(auto& truck : trucks)
+    {
+        highway.addVehicle(&truck);     
+    }
     
-    
-    
-    assert(false);
     //add the cars, motorcycles and trucks to the highway using range-based for() loops: for( element : vec ) { ... }
     //be careful to not accidentally make element copies when iterating.
     

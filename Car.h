@@ -1,9 +1,14 @@
 #pragma once
 
-struct Car : public Vehicle
+#include "Vehicle.h"
+
+struct Car : Vehicle
 {
     Car(const std::string& s);
-    void closeWindows();
+    virtual ~Car() override;
+    Car(const Car&);
+    Car& operator=(const Car&);
 
-    void tryToEvade();
+    void closeWindows();
+    void tryToEvade() override;
 };
